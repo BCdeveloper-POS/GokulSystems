@@ -356,7 +356,8 @@ namespace Gokulsystems
             public int getpack(string prodName)
             {
                 prodName = prodName.ToUpper();
-                var regexMatch = Regex.Match(prodName, @"(?<Result>\d+)\s*PK");
+                // var regexMatch = Regex.Match(prodName, @"(?<Result>\d+)\s*PK");
+                var regexMatch = Regex.Match(prodName, @"(?<Result>\d+)\s*[- ]?(PK|PACK)");
                 var prodPack = regexMatch.Groups["Result"].Value;
                 if (prodPack.Length > 0)
                 {
