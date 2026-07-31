@@ -18,7 +18,7 @@ namespace Gokulsystems
                     try
                     {
 
-                        //if (current.StoreSettings.StoreId == 12556 )
+                        //if (current.StoreSettings.StoreId == 13262)
                         //{ Console.WriteLine("fetching_storeid__" + current.StoreSettings.StoreId); }
                         //else { continue; }
 

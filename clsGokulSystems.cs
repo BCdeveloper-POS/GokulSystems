@@ -97,6 +97,9 @@ namespace Gokulsystems
             string Differentendpoints = ConfigurationManager.AppSettings.Get("Differentendpoints");
             string StaticQty = ConfigurationManager.AppSettings.Get("StaticQty");
             string IrrespectiveOfPrice = ConfigurationManager.AppSettings.Get("IrrespectiveOfPrice");
+            string NegtoPos = ConfigurationManager.AppSettings.Get("Negitivetopositive");
+
+            
             public GokulCsvProducts(int storeid, decimal tax, string BaseUrl, string Username, string Password, string Pin, List<categories> cat)
             {
                 
@@ -151,6 +154,10 @@ namespace Gokulsystems
                                 if (StaticQty.Contains(storeid.ToString()))
                                 {
                                     pmsk.Qty = 999;
+                                }
+                                if (NegtoPos.Contains(storeid.ToString()))
+                                {
+                                    pmsk.Qty = Math.Abs(pmsk.Qty);
                                 }
                                 pmsk.StoreProductName = itm["productname"].ToString().Trim();
                                 fname.pname = itm["productname"].ToString().Trim();
@@ -244,6 +251,10 @@ namespace Gokulsystems
                                 if (StaticQty.Contains(storeid.ToString()))
                                 {
                                     pmsk.Qty = 999;
+                                }
+                                if (NegtoPos.Contains(storeid.ToString()))
+                                {
+                                    pmsk.Qty = Math.Abs(pmsk.Qty);
                                 }
                                 if (string.IsNullOrEmpty(pmsk.Qty.ToString()))
                                     continue;
